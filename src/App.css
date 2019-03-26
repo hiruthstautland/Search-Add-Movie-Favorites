@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+}
+
+.navTable{
+  background-color: black;
+  display: block;
+  color: white;
+
+  margin: 0;
+  padding: 1em;
+}
+.searchBar:hover{
+  border: deepskyblue;
+
+}
+.searchBar img{
+  float: left;
+  width: 5%;
+  margin: .1em;
+  padding:.2em;
+}
+#searchBarInput{
+  display: block;
+  margin: .1em;
+  padding: .1em;
+  width: 90%;
+
+  border: none;
+  font-size: 24px;
+}
