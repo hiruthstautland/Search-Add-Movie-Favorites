@@ -31,7 +31,28 @@ class App extends Component {
     }
 
     performSearch(){
-        console.log('Searching via json');
+        console.log('Searching movie db via json');
+        const urlAPI = 'https://api.themoviedb.org/3/search/movie?api_key=d9514d5430ca1c39e3e1d6ea86a26697&query=Disney';
+        $.ajax({
+            url: urlAPI,
+            success: (searchResults) =>{    //success calback
+                console.log('Fetched the data');
+                //console.log(searchResults);
+                const results = searchResults.results;
+
+                let movieRows = [];
+
+                results.forEach((movie) =>{
+                    console.log(movie.title);
+                    const movieRow = <MovieRows movie={movie} />
+                    movieRows.push(movieRow);
+                })
+                this.setState({rows: movieRows})
+            },
+            error: (xhr, status, err) => {   //google this error callback
+                console.error('failed to fetch data');
+            }
+        })
     }
 
   render() {

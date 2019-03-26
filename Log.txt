@@ -1,6 +1,9 @@
 26.03
 - remake the movie DB page, https://www.themoviedb.org/?language=en-US
 
-- have to edit searchBar so searchIcon and SearchInput are 'locked'
+! have to edit searchBar so searchIcon and SearchInput are 'locked'
 
 - editing rows to get/fetch movie id/title
+
+! read more about ajax and jQuery
+    - error parameters error:()
