@@ -1,0 +1,6 @@
+26.03
+- remake the movie DB page, https://www.themoviedb.org/?language=en-US
+
+- have to edit searchBar so searchIcon and SearchInput are 'locked'
+
+- editing rows to get/fetch movie id/title

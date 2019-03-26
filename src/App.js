@@ -4,16 +4,34 @@ import './App.css';
 class App extends Component {
     constructor(props){ //Comes with props as parameter,so call super
         super(props); //; adding/omitting semicolons ; is optional in JS, lets keep doing it for now
-        console.log('boo');
+        console.log('boo from constructor');
 
-        this.state = {
-            rows: [
-                <p key={1}>This is state row 2 </p>,
-                <p key={2}>This is state row 4 </p>,
-                <p key={3}>This is state row 6</p>
-            ]
+        const movies = [
+            {id: 0, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bJLYrLIHT1r7cikhWGbpZkxlUpA.jpg',
+                title: 'Avengers: Endgame', overview: 'After the devastating events of Avengers: Infinity War, '},
+            {id: 1, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg',
+                title: 'Avengers: Infinity Wars', overview: 'Second overview: the universe is in ruins due to the efforts of the Mad Titan. '},
+        ]
 
-        }
+        let movieRows = [];
+        movies.forEach((movie) =>{
+            console.log(movie);
+
+            const movieRow = <table key={movie.id}>
+                <tbody>
+                <tr>
+                    <td>
+                        <img src={movie.poster_src} alt="Movie Poster" width="100" />
+                    </td>
+                    <td>
+                        {movie.title}
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            movieRows.push(movieRow)
+        })
+        this.state = {rows: movieRows};
     }
 
   render() {
