@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import './App.css';
+import $ from 'jquery';
+
+import MovieRows from './Comp/MovieRows';
+import Footer from './Comp/Footer';
 
 class App extends Component {
     constructor(props){ //Comes with props as parameter,so call super
         super(props); //; adding/omitting semicolons ; is optional in JS, lets keep doing it for now
-        console.log('boo from constructor');
+        this.state = {};
+        //console.log('boo from constructor');
 
-        const movies = [
-            {id: 0, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bJLYrLIHT1r7cikhWGbpZkxlUpA.jpg',
-                title: 'Avengers: Endgame', overview: 'After the devastating events of Avengers: Infinity War, '},
-            {id: 1, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg',
-                title: 'Avengers: Infinity Wars', overview: 'Second overview: the universe is in ruins due to the efforts of the Mad Titan. '},
-        ]
+        // const movies = [
+        //     {id: 0, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bJLYrLIHT1r7cikhWGbpZkxlUpA.jpg',
+        //         title: 'Avengers: Endgame', overview: 'After the devastating events of Avengers: Infinity War, '},
+        //     {id: 1, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/7WsyChQLEftFiDOVTGkv3hFpyyt.jpg',
+        //         title: 'Avengers: Infinity Wars', overview: 'Second overview: the universe is in ruins due to the efforts of the Mad Titan. '},
+        // ]
+        //
+        // let movieRows = [];
+        // movies.forEach((movie) =>{
+        //     console.log(movie);
+        //     const movieRow = <MovieRows movie = {movie} />
+        //
+        //     movieRows.push(movieRow)
+        // })
+        // this.state = {rows: movieRows};
 
-        let movieRows = [];
-        movies.forEach((movie) =>{
-            console.log(movie);
+        this.performSearch();
+    }
 
-            const movieRow = <table key={movie.id}>
-                <tbody>
-                <tr>
-                    <td>
-                        <img src={movie.poster_src} alt="Movie Poster" width="100" />
-                    </td>
-                    <td>
-                        {movie.title}
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            movieRows.push(movieRow)
-        })
-        this.state = {rows: movieRows};
+    performSearch(){
+        console.log('Searching via json');
     }
 
   render() {
@@ -60,6 +60,7 @@ class App extends Component {
                  placeholder="Search for a movie or TV show..." />
           </div>
           {this.state.rows}
+          {/* <Footer/> */ }
       </div>
     );
   }
