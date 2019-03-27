@@ -7,3 +7,7 @@
 
 ! read more about ajax and jQuery
     - error parameters error:()
+- fixed render issue in the movieRows class
+
+!Connect search box with api
+-add footer with credits to https://www.youtube.com/watch?v=bqSSLr8A8PU and move db logo,

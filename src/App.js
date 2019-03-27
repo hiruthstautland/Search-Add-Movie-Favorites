@@ -3,14 +3,12 @@ import './App.css';
 import $ from 'jquery';
 
 import MovieRows from './Comp/MovieRows';
-import Footer from './Comp/Footer';
 
 class App extends Component {
     constructor(props){ //Comes with props as parameter,so call super
         super(props); //; adding/omitting semicolons ; is optional in JS, lets keep doing it for now
         this.state = {};
         //console.log('boo from constructor');
-
         // const movies = [
         //     {id: 0, poster_src:'https://image.tmdb.org/t/p/w185_and_h278_bestv2/bJLYrLIHT1r7cikhWGbpZkxlUpA.jpg',
         //         title: 'Avengers: Endgame', overview: 'After the devastating events of Avengers: Infinity War, '},
@@ -27,29 +25,33 @@ class App extends Component {
         // })
         // this.state = {rows: movieRows};
 
-        this.performSearch();
+        this.performSearch('avengers');
     }
 
-    performSearch(){
+    performSearch(searchTerm){
         console.log('Searching movie db via json');
-        const urlAPI = 'https://api.themoviedb.org/3/search/movie?api_key=d9514d5430ca1c39e3e1d6ea86a26697&query=Disney';
+        //const urlAPI = 'https://api.themoviedb.org/3/search/movie?api_key=d9514d5430ca1c39e3e1d6ea86a26697&query=Disney';
+        const urlAPI = 'https://api.themoviedb.org/3/search/movie?api_key=d9514d5430ca1c39e3e1d6ea86a26697&query='+searchTerm;
         $.ajax({
             url: urlAPI,
             success: (searchResults) =>{    //success calback
                 console.log('Fetched the data');
                 //console.log(searchResults);
-                const results = searchResults.results;
+                const results = searchResults.results ;
+                //console.log(results[0]);
 
-                let movieRows = [];
+                var movieRows = [] ;
 
                 results.forEach((movie) =>{
-                    console.log(movie.title);
-                    const movieRow = <MovieRows movie={movie} />
+                    movie.poster_src = 'https://image.tmdb.org/t/p/w185' + movie.poster_path ;
+                    //console.log(movie.poster_path)
+
+                    const movieRow = <MovieRows key={movie.id} movie={movie} />
                     movieRows.push(movieRow);
                 })
                 this.setState({rows: movieRows})
             },
-            error: (xhr, status, err) => {   //google this error callback
+            error: (xhr, status, err) =>{   //google this error callback
                 console.error('failed to fetch data');
             }
         })
@@ -81,7 +83,6 @@ class App extends Component {
                  placeholder="Search for a movie or TV show..." />
           </div>
           {this.state.rows}
-          {/* <Footer/> */ }
       </div>
     );
   }
