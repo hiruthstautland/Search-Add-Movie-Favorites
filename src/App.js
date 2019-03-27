@@ -25,7 +25,7 @@ class App extends Component {
         // })
         // this.state = {rows: movieRows};
 
-        this.performSearch('barn');
+        this.performSearch('');
     }
 
     performSearch(searchTerm){
