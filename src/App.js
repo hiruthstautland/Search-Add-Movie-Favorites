@@ -25,7 +25,7 @@ class App extends Component {
         // })
         // this.state = {rows: movieRows};
 
-        this.performSearch('avengers');
+        this.performSearch('barn');
     }
 
     performSearch(searchTerm){
@@ -57,6 +57,12 @@ class App extends Component {
         })
     }
 
+    searchChangeHandler(event){
+        console.log(event.target.value);
+        const searchTerm = event.target.value;
+        this.performSearch(searchTerm);
+    }
+
   render() {
     return (
       <div className="App">
@@ -80,6 +86,8 @@ class App extends Component {
           </label>
           <input type="text"
                  id="searchBarInput"
+                 onChange={this.searchChangeHandler.bind(this)} //listen to the search field
+                //.bind, binds the class to the this. in the searchChangeHandler function.
                  placeholder="Search for a movie or TV show..." />
           </div>
           {this.state.rows}

@@ -11,3 +11,8 @@
 
 !Connect search box with api
 -add footer with credits to https://www.youtube.com/watch?v=bqSSLr8A8PU and move db logo,
+
+-browse movies finished.
+27.03
+!Add the favorite function - Buttons
+!Add View function - Buttons
