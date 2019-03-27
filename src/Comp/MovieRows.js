@@ -6,6 +6,10 @@ export default class MovieRows extends React.Component {
         const url = 'https://www.themoviedb.org/movie/'+this.props.movie.id;
         window.location.href = url;
     }
+    addToFavorites(movie){
+        const favorites = [...this.state.favorites, movie]
+        this.setState({favorites})
+    }
     render() {
         return(
             <div className="container">
@@ -26,7 +30,7 @@ export default class MovieRows extends React.Component {
                     <input type="button"
                            value="Add to Favorites"
                            className="formBtn"
-                           onClick={this.viewMovie}
+                           onClick={() => this.props.addToFavorites(this)}
                     />
                     <input type="button"
                            value="View Movie"

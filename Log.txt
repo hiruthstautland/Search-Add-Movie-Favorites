@@ -14,5 +14,7 @@
 
 -browse movies finished.
 27.03
-!Add the favorite function - Buttons
-!Add View function - Buttons
+- Added the favorite function - Buttons
+- Added View function - Buttons
+- Added comp
+! Add func.
