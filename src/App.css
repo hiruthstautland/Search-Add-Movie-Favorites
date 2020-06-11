@@ -1,96 +1,93 @@
 body {
-    margin-bottom: 8rem;
-    background-color: rgb(25, 25, 25);
+  margin-bottom: 8rem;
+  background-color: rgb(25, 25, 25);
+}
+.btn {
+  padding: 0;
 }
 .headerBg {
-    background-color: rgb(25, 25, 25);
+  background-color: rgb(25, 25, 25);
 }
 .searchBarInput {
-    margin: 0;
-    padding: 0;
-    letter-spacing: 0.12em;
-    font-size: 1em;
-    border: 0;
-    padding-left: 1em;
-    background-color: rgb(25, 25, 25);
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.12em;
+  font-size: 1em;
+  border: 0;
+  padding-left: 1em;
+  background-color: rgb(25, 25, 25);
 }
 .searchBarInput:focus {
-    outline: none;
+  outline: none;
 }
 ::placeholder {
-    color: white;
+  color: white;
 }
 /* Movie Card Comp */
 .movieCard-container {
-    perspective: 1000px;
-    width: 10em;
-    height: 18em;
-    box-shadow: 2px 2px 2px 3px rgba(180, 180, 180, 0.4);
-    transition: 0.2s;
-    margin: .5em;
+  perspective: 1000px;
+  width: 10em;
+  box-shadow: 2px 2px 2px 3px rgba(180, 180, 180, 0.4);
+  transition: 0.2s;
+  margin: 0.5em;
 }
 .movieCard-container:hover {
-    box-shadow: 2px 3px 2px 3px rgba(190, 190, 190, 30.6);
+  box-shadow: 2px 3px 2px 3px rgba(190, 190, 190, 30.6);
 }
 /* Movie Cards Flip */
 .movieCard:hover {
-    transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 .movieCard,
 .front,
 .back {
-    width: 10em;
-    height: 14em;
-    padding: 0.1em;
+  width: 10em;
+  height: 15em;
 }
 .movieCard {
-    transition: 0.8s;
-    transform-style: preserve-3d;
-    position: relative;
+  transition: 0.8s;
+  transform-style: preserve-3d;
+  position: relative;
 }
 .front,
 .back {
-    backface-visibility: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 .front {
-    z-index: 2;
-    transform: rotateY(0deg);
+  z-index: 2;
+  transform: rotateY(0deg);
 }
 .back {
-    z-index: 3;
-    transform: rotateY(180deg);
-}
-.movieCardFooter {
-    margin: 0.2em;
-    width: 9em;
+  z-index: 3;
+  transform: rotateY(180deg);
 }
 .title {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 6em;
-    font-size: 1em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 6em;
+  font-size: 1em;
 }
 .text {
-    padding: 0.1em;
-    max-height: 12em;
-    overflow: hidden;
+  padding: 0.1em;
+  max-height: 12em;
+  overflow: hidden;
 }
 /* Movie Buttons */
 .MovieButton-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 /* DropDown Comp */
 
 /*Pagination*/
 button:focus {
-    outline: none;
+  outline: none;
 }
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

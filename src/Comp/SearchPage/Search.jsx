@@ -1,18 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import DropDownMenu from "./DropDownMenu";
 
-const Search = ({ movieObj, favoritesIds, deleteMovieFavorite }) => {
-  const [showItems, setShowItems] = useState(showItems);
-  const [movie, setMovie] = useState(movieObj);
+const Search = ({
+  movieObj,
+  favoritesIds,
+  categories,
+  deleteMovieFavorite,
+}) => {
+  const [showCategories, setShowCategories] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(categories[0].value);
 
-  const dropDown = () => {
-    setMovie((prevState) => ({
-      showItems: !prevState.showItems,
-    }));
+  const handleClick = (category) => {
+    // add to favorites
+    console.log(movieObj.id);
+    console.log(category);
+    setSelectedCategory(category);
+    toggleDropDown();
   };
+
+  //   const addToFavorites(movieId, category) {
+
+  //   }
+  // click outside close drop down
+  const addFavorites = useRef();
+
+  const toggleDropDown = () => {
+    setShowCategories(!showCategories);
+  };
+  //   const dropDown = () => {
+  //     setMovie((prevState) => ({
+  //       showItems: !prevState.showItems,
+  //     }));
+  //   };
+
   return (
-    <div className="movieCard-container h2 ma2 ">
-      <div className="movieCard br1">
+    <div className="movieCard-container flex flex-column">
+      <div className="movieCard w-100">
         <div className="front">
           <img
             alt="Movie Poster"
@@ -28,50 +51,44 @@ const Search = ({ movieObj, favoritesIds, deleteMovieFavorite }) => {
           </div>
         </div>
       </div>
-      <div className="movieCardFooter flex w-100">
-        <div className="movieCardButtons flex justify-between w-100">
-          <div className="movieButton-dropDown">
-            {!favoritesIds.includes(movieObj.id) ? (
-              // <button
-              //     type='submit'
-              //     className='bn br2 dim headerBg white'
-              //     onClick={() =>
-              //         this.props.addToFavorites(movieObj.id)}
-              // >
-              // </button>
+      <div className="movieCardFooter w-100 h2">
+        <div className="movieCardButtons h-100 flex items-center justify-between">
+          {!favoritesIds.includes(movieObj.id) ? (
+            showCategories ? (
               <DropDownMenu
-                width={300}
-                categories={[
-                  { value: "Romance", id: 1 },
-                  { value: "Comedy", id: 2 },
-                  { value: "Action", id: 3 },
-                  { value: "Documentary", id: 4 },
-                  { value: "Children", id: 5 },
-                ]}
+                categories={categories}
+                toggleDropDown={toggleDropDown}
+                handleClick={handleClick}
                 className="DropDownMenu"
               />
             ) : (
               <button
-                type="submit"
-                className="bn br2 dim headerBg"
-                onClick={() => deleteMovieFavorite(movieObj.id)}
+                type="button"
+                className="bn pa2 dim bg-transparent"
+                onClick={() => toggleDropDown()}
               >
-                <i className="fas fa-heart red" />
+                <i className="far fa-heart red center-heart" />
               </button>
-            )}
-          </div>
-          <div className="movieButton-info">
-            <button className="bn br2 h2 dim headerBg white mr1">
-              <a
-                href={"https://www.themoviedb.org/movie/" + movieObj.id}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="headerBg white link"
-              >
-                Info
-              </a>
+            )
+          ) : (
+            <button
+              type="submit"
+              className="bn dim bg-transparent pa2"
+              onClick={() => deleteMovieFavorite(movieObj.id)}
+            >
+              <i className="fas fa-heart red" />
             </button>
-          </div>
+          )}
+          <button className="bn btn dim bg-transparent white mr1 pa2">
+            <a
+              href={"https://www.themoviedb.org/movie/" + movieObj.id}
+              target="_blank"
+              rel="noopener noreferrer"
+              className=" bg-transparent white link"
+            >
+              Info
+            </a>
+          </button>
         </div>
       </div>
     </div>

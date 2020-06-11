@@ -21,11 +21,10 @@
   padding: 4px 12px;
   vertical-align: middle;
 }
-.select-box--items div {
+.select-box--items {
   border: 1px solid #ddd;
-  background: rgb(54, 52, 49);
-  border-radius: 3px;
-  padding-left: 0.4em;
+  /* border-radius: 1px; */
+  padding-left: 0.6em;
   cursor: pointer;
 }
 .select-box--items div.selected {
@@ -33,19 +32,4 @@
   background-size: 1em;
   background-repeat: no-repeat;
   background-position: 8em 0.5em;
-}
-.select-box--heart {
-  width: 2em;
-  height: 2em;
-  margin: 0;
-  padding: 0;
-  display: inline-block;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-.center-heart {
-  position: absolute;
-  top: 0.5em;
-  left: 0.5em;
 }
