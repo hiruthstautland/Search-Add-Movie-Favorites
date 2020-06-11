@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+.select-box--box {
+  width: 140px;
+  position: absolute;
+  left: 0;
+}
+.select-box--container {
+  height: 14px;
+  width: 50%;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+.select-box--selected-item {
+  height: 100%;
+  width: 100%;
+  display: inline-block;
+  padding: 4px 12px;
+  vertical-align: middle;
+}
+.select-box--items div {
+  border: 1px solid #ddd;
+  background: rgb(54, 52, 49);
+  border-radius: 3px;
+  padding-left: 0.4em;
+  cursor: pointer;
+}
+.select-box--items div.selected {
+  background-image: url("../check.png");
+  background-size: 1em;
+  background-repeat: no-repeat;
+  background-position: 8em 0.5em;
+}
+.select-box--heart {
+  width: 2em;
+  height: 2em;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.center-heart {
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+}
