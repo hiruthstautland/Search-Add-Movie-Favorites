@@ -3,23 +3,21 @@ import "./style.css";
 
 const DropDownMenu = ({ categories, handleClick, selectedCategory }) => {
   return (
-    // <span className="select-box--box ">
-    <span className="w-50 self-end">
-      {/* <div className="select-box--container"> */}
-      <div className="select-box--items bg-near-white near-black">
-        {categories.map((category) => (
-          <div
-            key={category.id}
-            onClick={() => handleClick(category.value)}
-            className={selectedCategory === category ? "text-bold" : ""}
-          >
-            {category.value}
-          </div>
-        ))}
-      </div>
-    </span>
-    // </div>
-    // </span>
+    <div className="w-50 self-end z-3 b--light-silver bg-moon-gray near-black">
+      {categories.map((category) => (
+        <div
+          key={category.id}
+          onClick={() => handleClick(category.value)}
+          className={
+            selectedCategory === category
+              ? "text-bold bb"
+              : "bb dim pointer pa1"
+          }
+        >
+          {category.value}
+        </div>
+      ))}
+    </div>
   );
 };
 

@@ -10,7 +10,7 @@ import FavoritesPage from "./Comp/FavoritesPage";
 
 function App() {
   const [activePage, setActivePage] = useState("search");
-  const [favoritesIds, setFavoritesIds] = useState([]);
+  const [favoritesObj, setfavoritesObj] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,7 +19,7 @@ function App() {
   const searchChangeHandler = debounce((searchValue) => {
     setSearchValue(searchValue);
     performSearch(searchValue);
-  }, 200);
+  }, 300);
 
   const performSearch = (searchValue) => {
     if (searchValue) {
@@ -38,18 +38,20 @@ function App() {
     }
   }, [activePage]);
 
-  const addToFavorites = (movieId) => {
-    setFavoritesIds(favoritesIds.concat([movieId]));
+  // const addToFavorites = (movieId) => {
+  //   setfavoritesObj(favoritesObj.concat([movieId]));
+  // };
+  const addToFavorites = (movieObj, category) => {
+    let favList = { category: movieObj };
+    console.log(movieObj);
+    console.log(movieObj.id);
+    console.log(category);
+    setfavoritesObj.push(favList);
   };
-  // addToCategory(category){
-  // 	this.setState({
-  // 		category: this.state
-  // 	})
-  // }
 
   const deleteMovieFavorite = (movieId) => {
-    setFavoritesIds(
-      favoritesIds.filter(function (movie) {
+    setfavoritesObj(
+      favoritesObj.filter(function (movie) {
         return movie !== movieId;
       })
     );
@@ -105,7 +107,7 @@ function App() {
       <div className="searchPage flex flex-wrap justify-around w-90 center">
         <ActivePage
           searchResults={searchResults}
-          favoritesIds={favoritesIds}
+          favoritesObj={favoritesObj}
           addToFavorites={addToFavorites}
           deleteMovieFavorite={deleteMovieFavorite}
           navigate={navigate}

@@ -4,7 +4,7 @@ import { getCategories } from "./../../apis/categoriesApi";
 
 const SearchPage = ({
   searchResults,
-  favoritesIds,
+  favoritesObj,
   addToFavorites,
   deleteMovieFavorite,
 }) => {
@@ -22,7 +22,7 @@ const SearchPage = ({
       categories={categories}
       key={movieObj.id}
       movieObj={movieObj}
-      favoritesIds={favoritesIds}
+      favoritesObj={favoritesObj}
       addToFavorites={addToFavorites}
       deleteMovieFavorite={deleteMovieFavorite}
     />

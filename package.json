@@ -24,5 +24,8 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "devDependencies": {}
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "i": "^0.3.6"
+  }
 }
