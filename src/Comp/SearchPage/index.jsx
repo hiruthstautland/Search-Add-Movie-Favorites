@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Search from "./Search";
-import { getCategories } from "./../../apis/categoriesApi";
 
 const SearchPage = ({
   searchResults,
   favoritesObj,
   addToFavorites,
+  categories,
   deleteMovieFavorite,
 }) => {
-  // get from props
-  const loginAge = 6;
-  const [categories, setCategories] = useState([]);
-  const [askPermission, setAskPermission] = useState([]);
-
-  useEffect(() => {
-    setCategories(getCategories(loginAge).allowedCategories);
-  }, []);
+  //   const [askPermission, setAskPermission] = useState([]);
 
   return searchResults.map((movieObj) => (
     <Search

@@ -50,3 +50,13 @@ export function getCategories(age) {
   });
   return { allowedCategories, askPremission };
 }
+
+const lists = [
+  { id: 1, name: "SUMMER" },
+  { id: 2, name: "WINTER" },
+  { id: 5, name: "Vallhall" },
+];
+export function getLists(id) {
+  // search algo
+  return lists.filter((list) => list.id == id);
+}

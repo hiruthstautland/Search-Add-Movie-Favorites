@@ -1,34 +1,31 @@
 import React from "react";
 const Header = ({ navigate, searchValue, searchChangeHandler }) => {
   return (
-    <div className="flex justify-between">
-      <div className="fl flex w-50 self-center">
-        <button className="dim bn headerBg" onClick={() => navigate("search")}>
-          <img className="w3 pa3" src="MDB-logo.png" alt="movieDB-logo" />
-        </button>
+    <div className="flex justify-between pa3">
+      <div>
         <button
-          className="bn headerBg ttu green self-center"
+          className="dim bn bg-transparent"
           onClick={() => navigate("search")}
         >
-          <h2>Movies and TV Search </h2>
+          <img className="w2" src="MDB-logo.png" alt="movieDB-logo" />
         </button>
       </div>
-      <div className="flex fl w-50 self-center">
-        <div className="searchBar flex self-center items-end bb b--white w-70 ma2">
-          <input
-            type="text"
-            minLength="2"
-            maxLength="30"
-            className="searchBarInput white w-90 center"
-            value={searchValue}
-            onChange={searchChangeHandler}
-            placeholder="Search"
-          />
-          <img src="searchIcon.png" alt="searchIcon" className="h2 pa1" />
-        </div>
+      <div className="flex bb b--white">
+        <input
+          type="text"
+          minLength="2"
+          maxLength="30"
+          className="searchBarInput white bg-transparent pa0"
+          value={searchValue}
+          onChange={searchChangeHandler}
+          placeholder="Search"
+        />
+        <img src="searchIcon.png" alt="searchIcon" className="h2" />
+      </div>
+      <div>
         <button
           type="button"
-          className="br3 bn bg-green dim white pa2 ma3 "
+          className="bn bg-green dim white"
           onClick={() => navigate("favorites")}
         >
           My Movies

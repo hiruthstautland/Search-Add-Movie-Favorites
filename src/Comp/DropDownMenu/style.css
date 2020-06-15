@@ -2,11 +2,19 @@
   box-sizing: border-box;
 }
 
-.select-box--box {
-  width: 140px;
+.dd-list {
   position: absolute;
-  left: 0;
+  margin: 0;
+  padding: 0;
+  width: 10em;
+  list-style-type: none;
 }
+
+.dd-list-elm {
+  z-index: 4;
+  padding: 0.2em;
+}
+/*
 .select-box--container {
   height: 14px;
   width: 50%;
@@ -24,12 +32,12 @@
 .select-box--items {
   border: 1px solid #ddd;
   /* border-radius: 1px; */
-  padding-left: 0.6em;
+/* padding-left: 0.6em;
   cursor: pointer;
 }
 .select-box--items div.selected {
-  background-image: url("../check.png");
+  background-image: url("./check.png");
   background-size: 1em;
   background-repeat: no-repeat;
   background-position: 8em 0.5em;
-}
+} */

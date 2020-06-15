@@ -3,9 +3,10 @@ import "./App.css";
 import * as debounce from "lodash.debounce";
 import * as api from "./Comp/movieApi";
 import Header from "./Comp/Header/index";
-import Footer from "./Comp/Footer";
+import { FiltersBar } from "./Comp/FiltersBar";
 import SearchPage from "./Comp/SearchPage";
 import FavoritesPage from "./Comp/FavoritesPage";
+import Footer from "./Comp/Footer";
 // import Pagination from './Comp/Pagination';
 
 function App() {
@@ -16,10 +17,20 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalDataResult, setTotalDataResult] = useState(0);
 
+  useEffect(() => {
+    showView(activePage);
+
+    if (searchValue != searchValue) {
+      performSearch(searchValue);
+    }
+  }, [activePage]);
+
   const searchChangeHandler = debounce((searchValue) => {
     setSearchValue(searchValue);
-    performSearch(searchValue);
-  }, 300);
+    if (searchValue.length > 2) {
+      performSearch(searchValue);
+    }
+  }, 200);
 
   const performSearch = (searchValue) => {
     if (searchValue) {
@@ -30,23 +41,20 @@ function App() {
     }
   };
 
-  useEffect(() => {
-    showView(activePage);
-
-    if (searchValue != searchValue) {
-      performSearch(searchValue);
-    }
-  }, [activePage]);
-
-  // const addToFavorites = (movieId) => {
-  //   setfavoritesObj(favoritesObj.concat([movieId]));
-  // };
-  const addToFavorites = (movieObj, category) => {
-    let favList = { category: movieObj };
-    console.log(movieObj);
-    console.log(movieObj.id);
-    console.log(category);
-    setfavoritesObj.push(favList);
+  const addToFavorites = (movieObj, toList) => {
+    // // se if category exist category/list
+    // let categoryExist = categories.hasOwnProperty(toList);
+    // categoryExist
+    //   ? Object.assign({}, categories[toList], toList)
+    //   : (categories[toList] = toList);
+    // console.log(categories);
+    // // let categoryExist = categories.filter((cat) => {
+    // //   return cat.value === toList;
+    // // });
+    // let addToCategory = { movieObj };
+    // // categoryExist.length ?
+    // // setfavoritesObj([...favoritesObj, addToCategory]) :
+    // console.log(categoryExist);
   };
 
   const deleteMovieFavorite = (movieId) => {
@@ -104,6 +112,7 @@ function App() {
         navigate={navigate}
         activePage={activePage}
       />
+      <FiltersBar />
       <div className="searchPage flex flex-wrap justify-around w-90 center">
         <ActivePage
           searchResults={searchResults}

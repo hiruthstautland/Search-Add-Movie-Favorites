@@ -1,34 +1,30 @@
-import React, { useState, useRef } from "react";
-import DropDownMenu from "./DropDownMenu";
+import React, { useState, useEffect } from "react";
+import DropDownMenu from "./../DropDownMenu/index";
+import { getLists } from "./../../apis/categoriesApi";
 
 const Search = ({
   movieObj,
   favoritesObj,
   addToFavorites,
-  categories,
   deleteMovieFavorite,
 }) => {
-  const [showCategories, setShowCategories] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0].value);
+  const [storedLists, setStoredLists] = useState([]);
 
-  const handleClick = (category) => {
+  useEffect(() => {
+    setStoredLists(getLists());
+  });
+  const handleClick = (params) => {
     // add to favorites
-    addToFavorites(movieObj, category);
-    setSelectedCategory(category);
-    toggleDropDown();
+    addToFavorites(movieObj, params);
+    // setSelectedCategory(category);
   };
 
   // click outside close drop down
   //   const addFavorites = useRef();
 
-  const toggleDropDown = () => {
-    setShowCategories(!showCategories);
-  };
-
   const isAdded = favoritesObj.filter((fav) => {
     return fav.id === movieObj.id;
   });
-  console.log(isAdded);
 
   return (
     <div className="movieCard-container flex flex-column">
@@ -58,22 +54,13 @@ const Search = ({
             >
               <i className="fas fa-heart red" />
             </button>
-          ) : showCategories ? (
-            <DropDownMenu
-              selectedCategory={selectedCategory}
-              categories={categories}
-              toggleDropDown={toggleDropDown}
-              handleClick={handleClick}
-              className="DropDownMenu"
-            />
           ) : (
-            <button
-              type="button"
-              className="bn pa2 dim bg-transparent"
-              onClick={() => toggleDropDown()}
-            >
-              <i className="far fa-heart red center-heart" />
-            </button>
+            <DropDownMenu
+              btnClass="bn"
+              placholder={<i className="far fa-heart red center-heart" />}
+              options={storedLists}
+              handleClick={handleClick}
+            />
           )}
           <button className="bn btn dim bg-transparent white mr1 pa2">
             <a
