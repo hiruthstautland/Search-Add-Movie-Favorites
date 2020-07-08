@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import DropDownMenu from "./../DropDownMenu/index";
-import { getLists } from "./../../apis/categoriesApi";
+import DropDownMenu from "../DropDownMenu/index";
+import { getLists } from "../../apis/categoriesApi";
 
 const Search = ({
   movieObj,
@@ -37,9 +37,8 @@ const Search = ({
           />
         </div>
         <div className="back">
-          <div className="title white">
-            <b>{movieObj.title}</b>
-            <br />
+          <div className="movieCardContent">
+            <strong>{movieObj.title}</strong>
             <p>{movieObj.overview}</p>
           </div>
         </div>
@@ -69,7 +68,7 @@ const Search = ({
               rel="noopener noreferrer"
               className=" bg-transparent white link"
             >
-              Info
+              More
             </a>
           </button>
         </div>

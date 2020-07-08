@@ -59,30 +59,18 @@ body {
   z-index: 3;
   transform: rotateY(180deg);
 }
-.title {
-  white-space: nowrap;
+.movieCardContent {
+  height: 220px;
+  width: 160px;
   overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 6em;
-  font-size: 1em;
+  color: white;
+  padding: 0.3em;
+  font-size: 1.2em;
 }
-.text {
-  padding: 0.1em;
-  max-height: 12em;
-  overflow: hidden;
-}
+
 /* Movie Buttons */
 .MovieButton-info {
   position: absolute;
   bottom: 0;
   left: 0;
-}
-/* DropDown Comp */
-
-/*Pagination*/
-button:focus {
-  outline: none;
-}
-button:hover {
-  cursor: pointer;
 }

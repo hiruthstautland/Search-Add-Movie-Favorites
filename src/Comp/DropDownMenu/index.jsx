@@ -6,24 +6,12 @@ const DropDownMenu = ({ options, handleClick, btnClass, placholder }) => {
 
   const [open, setOpen] = useState(false);
 
-  const handleClickDD = (e) => {
-    if (node.current.contains(e.target)) {
-      return;
-    }
-    setOpen(false);
-  };
-
-  const handleChange = (method) => {
-    method();
-    setOpen(false);
-  };
+  const clickOutside = (e) =>
+    node.current.contains(e.target) ? null : setOpen(false);
 
   useEffect(() => {
-    document.addEventListener("mousedown", handleClickDD);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickDD);
-    };
+    document.addEventListener("mousedown", clickOutside);
+    return () => document.removeEventListener("mousedown", clickOutside);
   }, []);
 
   return (
